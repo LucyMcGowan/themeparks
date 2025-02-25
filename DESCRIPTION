@@ -1,0 +1,24 @@
+Package: themeparks
+Type: Package
+Title: An interface to themeparks.wiki
+Version: 0.1.0
+Description: Retrieve theme park information including wait times and
+    availability in R.
+Authors@R: 
+    person("Lucy", "D'Agostino McGowan", role = c("aut", "cre"), email = "lucydagostino@gmail.com")
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    cli,
+    glue,
+    httr,
+    janitor,
+    jsonlite,
+    purrr,
+    rlang,
+    tibble,
+    vctrs
+RoxygenNote: 7.3.0
+Roxygen: list(markdown = TRUE)
+URL: https://lucymcgowan.github.io/themeparks/

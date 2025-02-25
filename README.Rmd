@@ -1,0 +1,56 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# themeparks
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of themeparks is to allow R users to access the themeparks.wiki API.
+
+## Installation
+
+You can install the development version of themeparks like so:
+
+``` r
+devtools::install_github("LucyMcGowan/themeparks")
+```
+
+## Example
+
+You can access the available destinations using the `get_destinations` function:
+
+```{r example}
+library(themeparks)
+get_destinations()
+```
+
+Once you have a destination in mind, you can find more information using the `get_entity` function. For example, if I want to pull all entity data for the Walt Disney World Resort, I can use the `slug` provided in the above dataset (or the `id`).
+
+```{r}
+get_entity("waltdisneyworldresort")
+```
+If you would like to all of the available parks, attractions, dining, and shows for a particular destination, you can use `get_entity_children`.
+
+```{r}
+get_entity_children("waltdisneyworldresort")
+```
+
+If you would like to extract live data for a particular attraction, you can use `get_entity_live_data`:
+
+```{r}
+get_entity_live_data("junglecruise")
+```
+
