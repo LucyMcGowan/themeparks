@@ -4,6 +4,10 @@
 # themeparks
 
 <!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/themeparks)](https://CRAN.R-project.org/package=themeparks)
+[![R-CMD-check](https://github.com/LucyMcGowan/themeparks/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/LucyMcGowan/themeparks/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of themeparks is to allow R users to access the themeparks.wiki
@@ -94,4 +98,26 @@ get_entity_live_data("junglecruise")
 #> # ℹ 5 more variables: last_updated <chr>, queue_standby_wait_time <int>,
 #> #   queue_return_time_state <chr>, queue_return_time_return_end <lgl>,
 #> #   queue_return_time_return_start <lgl>
+```
+
+You can also get all of the current wait time data for a particular
+destination, for example, for Walt Disney World:
+
+``` r
+wdw_waits <- get_wait_times("waltdisneyworldresort")
+wdw_waits[order(-wdw_waits$wait_time), ]
+#> # A tibble: 102 × 2
+#>    name                                           wait_time
+#>    <chr>                                              <int>
+#>  1 The Twilight Zone Tower of Terror™                   105
+#>  2 Jungle Cruise                                         90
+#>  3 Rainforest Cafe® at Disney Springs Marketplace        90
+#>  4 TRON Lightcycle / Run                                 85
+#>  5 Seven Dwarfs Mine Train                               75
+#>  6 Guardians of the Galaxy: Cosmic Rewind                70
+#>  7 Slinky Dog Dash                                       70
+#>  8 Remy's Ratatouille Adventure                          70
+#>  9 Meet Anna and Elsa at Royal Sommerhus                 65
+#> 10 Frozen Ever After                                     65
+#> # ℹ 92 more rows
 ```
