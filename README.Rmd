@@ -54,3 +54,10 @@ If you would like to extract live data for a particular attraction, you can use 
 get_entity_live_data("junglecruise")
 ```
 
+You can also get all of the current wait time data for a particular destination, for example, for Walt Disney World:
+
+```{r}
+wdw_waits <- get_wait_times("waltdisneyworldresort")
+wdw_waits[order(-wdw_waits$wait_time), ]
+```
+

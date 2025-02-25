@@ -9,6 +9,13 @@
 themeparks allows you to interact with theme park data from the
 themepark.wiki API
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://lucymcgowan.github.io/themeparks/}
+}
+
+}
 \author{
 \strong{Maintainer}: Lucy D'Agostino McGowan \email{lucydagostino@gmail.com}
 

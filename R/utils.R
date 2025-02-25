@@ -41,3 +41,15 @@ check_year_month <- function(year, month) {
   }
 
 }
+
+check_attraction <- function(data) {
+  if (all(data$entity_type != "ATTRACTION")) {
+    cli::cli_abort(c("This function is intended for attractions, ",
+                     "the entity you input is of type {data$entity_type})")
+    )
+
+  }
+}
+check_entity_id <- function(entity_id) {
+  return(entity_id)
+}

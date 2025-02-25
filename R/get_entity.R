@@ -46,10 +46,6 @@ get_entity_children <- function(entity_id) {
   json_to_tibble(content)
 }
 
-check_entity_id <- function(entity_id) {
-  return(entity_id)
-}
-
 #' Get entity live data
 #'
 #' Get an entity's live data (wait times, availability, parade times, etc.) as
@@ -74,7 +70,9 @@ get_entity_live_data <- function(entity_id, verbose = TRUE) {
   httr::stop_for_status(response)
   content <- httr::content(response, encoding = "UTF-8", type = "text")
   lst <- jsonlite::fromJSON(content, flatten = TRUE)
-  cli::cli_alert_info(glue::glue("Pulling live data for {lst$name}"))
+  if (verbose) {
+    cli::cli_alert_info("Pulling live data for {lst$name}")
+  }
   lst$liveData |>
     tibble::as_tibble() |>
     janitor::clean_names()
@@ -102,11 +100,11 @@ get_entity_schedule <- function(entity_id, year = NULL, month = NULL) {
       url = glue::glue("https://api.themeparks.wiki/v1/entity/{entity_id}/schedule")
     )
   } else {
-  check_year_month(year, month)
+    check_year_month(year, month)
 
-  response <- httr::GET(
-    url = glue::glue("https://api.themeparks.wiki/v1/entity/{entity_id}/schedule/{year}/{sprintf('%02d', month)}")
-  )
+    response <- httr::GET(
+      url = glue::glue("https://api.themeparks.wiki/v1/entity/{entity_id}/schedule/{year}/{sprintf('%02d', month)}")
+    )
   }
   httr::stop_for_status(response)
   content <- httr::content(response, encoding = "UTF-8", type = "text")
@@ -123,7 +121,7 @@ get_entity_schedule <- function(entity_id, year = NULL, month = NULL) {
     return(data)
   } else {
     cli::cli_alert_info(c("Your entity was of type {lst$entityType}; we do not",
-                        " know of a schedule for these types."))
+                          " know of a schedule for these types."))
   }
 
 }
