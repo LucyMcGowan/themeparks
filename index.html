@@ -48,7 +48,7 @@
 <div class="page-header"><h1 id="themeparks">themeparks<a class="anchor" aria-label="anchor" href="#themeparks"></a>
 </h1></div>
 <!-- badges: start -->
-<!-- badges: end -->
+
 <p>The goal of themeparks is to allow R users to access the themeparks.wiki API.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -118,6 +118,24 @@
 <span><span class="co">#&gt; # ℹ 5 more variables: last_updated &lt;chr&gt;, queue_standby_wait_time &lt;int&gt;,</span></span>
 <span><span class="co">#&gt; #   queue_return_time_state &lt;chr&gt;, queue_return_time_return_end &lt;lgl&gt;,</span></span>
 <span><span class="co">#&gt; #   queue_return_time_return_start &lt;lgl&gt;</span></span></code></pre></div>
+<p>You can also get all of the current wait time data for a particular destination, for example, for Walt Disney World:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">wdw_waits</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_wait_times.html">get_wait_times</a></span><span class="op">(</span><span class="st">"waltdisneyworldresort"</span><span class="op">)</span></span>
+<span><span class="va">wdw_waits</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">wdw_waits</span><span class="op">$</span><span class="va">wait_time</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="co">#&gt; # A tibble: 102 × 2</span></span>
+<span><span class="co">#&gt;    name                                           wait_time</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;                                              &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1 The Twilight Zone Tower of Terror™                   105</span></span>
+<span><span class="co">#&gt;  2 Jungle Cruise                                         90</span></span>
+<span><span class="co">#&gt;  3 Rainforest Cafe® at Disney Springs Marketplace        90</span></span>
+<span><span class="co">#&gt;  4 TRON Lightcycle / Run                                 85</span></span>
+<span><span class="co">#&gt;  5 Seven Dwarfs Mine Train                               75</span></span>
+<span><span class="co">#&gt;  6 Guardians of the Galaxy: Cosmic Rewind                70</span></span>
+<span><span class="co">#&gt;  7 Slinky Dog Dash                                       70</span></span>
+<span><span class="co">#&gt;  8 Remy's Ratatouille Adventure                          70</span></span>
+<span><span class="co">#&gt;  9 Meet Anna and Elsa at Royal Sommerhus                 65</span></span>
+<span><span class="co">#&gt; 10 Frozen Ever After                                     65</span></span>
+<span><span class="co">#&gt; # ℹ 92 more rows</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
@@ -143,7 +161,13 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=themeparks" class="external-link"><img src="https://www.r-pkg.org/badges/version/themeparks" alt="CRAN status"></a></li>
+<li><a href="https://github.com/LucyMcGowan/themeparks/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/LucyMcGowan/themeparks/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
