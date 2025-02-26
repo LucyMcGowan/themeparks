@@ -1,6 +1,6 @@
 Package: themeparks
 Type: Package
-Title: An interface to themeparks.wiki
+Title: An Interface to Themeparks.wiki
 Version: 0.1.0
 Description: Retrieve theme park information including wait times and
     availability in R.
