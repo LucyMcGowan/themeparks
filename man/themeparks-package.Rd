@@ -4,7 +4,7 @@
 \name{themeparks-package}
 \alias{themeparks}
 \alias{themeparks-package}
-\title{themeparks: An interface to themeparks.wiki}
+\title{themeparks: An Interface to Themeparks.wiki}
 \description{
 themeparks allows you to interact with theme park data from the
 themepark.wiki API
